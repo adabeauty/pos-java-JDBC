@@ -1,6 +1,12 @@
 package com.thoughtworks.iamcoach.pos.module;
 
 public class BuyTwoOneFreePromotion extends Promotion{
+    public BuyTwoOneFreePromotion(int id, int type, String description) {
+        super(id, type, description);
+    }
+
+    public BuyTwoOneFreePromotion() {
+    }
 
     @Override
     public double calcultaPromotion(Item item, double num) {
