@@ -13,4 +13,8 @@ public class ItemService {
     public ArrayList<Item> getItems() {
         return itemImple.getItems();
     }
+
+    public Item getItemByBarcode(String barcode) {
+        return itemImple.getItemByBarcode(barcode);
+    }
 }
