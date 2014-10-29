@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Ulti {
+public class ConnctionUlti {
 
     private String driverName = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://localhost:3306/pos_java?useUnicode=true&characterEncoding=utf-8";   //pos是database名字
