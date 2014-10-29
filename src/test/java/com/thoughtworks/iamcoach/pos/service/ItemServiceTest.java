@@ -1,7 +1,10 @@
 package com.thoughtworks.iamcoach.pos.service;
 
+import com.thoughtworks.iamcoach.pos.module.Category;
 import com.thoughtworks.iamcoach.pos.module.Item;
 import org.junit.Test;
+
+import java.util.Calendar;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -19,5 +22,20 @@ public class ItemServiceTest {
         Item item = new Item(3,"TF1001", "apple", "kg", 8.0);
         String barcode = "TF1001";
         assertThat(itemService.getItemByBarcode(barcode).toString()).isEqualTo(item.toString());
+    }
+
+    @Test
+    public void can_get_promotions_of_item(){
+        ItemService itemService = new ItemService();
+        int id = 1;
+        assertThat(itemService.getPromotions(id).size()).isEqualTo(3);
+    }
+
+    @Test
+    public void can_get_category_of_item(){
+        ItemService itemService = new ItemService();
+        int id = 1;
+        Category category = new Category("fruit");
+        assertThat(itemService.getCategory(id).toString()).isEqualTo(category.toString());
     }
 }
