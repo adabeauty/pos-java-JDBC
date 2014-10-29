@@ -21,7 +21,7 @@ public class ItemImple implements ItemDao {
         try{
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, barcode);
-            rs = pstmt.executeQuery(sql);
+            rs = pstmt.executeQuery();
             rs.next();
             item = new Item(rs.getInt("categoryId"), rs.getString("barcode"), rs.getString("name"), rs.getString("unit"), rs.getDouble("price"));
 
