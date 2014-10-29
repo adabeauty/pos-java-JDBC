@@ -3,10 +3,7 @@ package com.thoughtworks.iamcoach.pos.Dao;
 import com.thoughtworks.iamcoach.pos.Ulti.Ulti;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
