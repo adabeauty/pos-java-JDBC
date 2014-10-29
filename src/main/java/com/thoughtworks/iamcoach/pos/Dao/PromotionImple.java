@@ -44,6 +44,27 @@ public class PromotionImple implements PromotionDao {
 
     @Override
     public ArrayList<Promotion> getPromotions() {
-        return null;
+        ArrayList<Promotion> promotions = new ArrayList<Promotion>();
+        String sql = "SELECT * FROM promotions";
+
+        Promotion promotion = null;
+        Connection conn = ulti.getConnection();
+        try{
+            preparedStatement = conn.prepareStatement(sql);
+
+            result = preparedStatement.executeQuery(sql);
+            while (result.next()){
+                promotion = new Promotion(result.getInt("id"), result.getInt("type"), result.getString("description"));
+                promotions.add(promotion);
+            }
+
+            ulti.closeConnection();
+            preparedStatement.close();
+            result.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return promotions;
     }
 }
