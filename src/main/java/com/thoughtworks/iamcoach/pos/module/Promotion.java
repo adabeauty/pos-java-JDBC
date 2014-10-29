@@ -1,8 +1,5 @@
 package com.thoughtworks.iamcoach.pos.module;
 
-/**
- * Created by wanghuan on 14-10-29.
- */
 public class Promotion {
 
     private int id;
@@ -14,7 +11,6 @@ public class Promotion {
         this.type = type;
         this.description = description;
     }
-
 
     public int getId() {
         return id;
