@@ -62,7 +62,7 @@ public class ItemImple implements ItemDao {
     }
 
     @Override
-    public ArrayList<Promotion> getPromotionOfItem(int id) {
+    public ArrayList<Promotion> getPromotions(int id) {
         ArrayList<Promotion> promotions = new ArrayList<Promotion>();
         String sql = "SELECT promotions.*, relationship.discount FROM promotions, relationship " +
                 "WHERE relationship.itemId=? AND promotions.id=relationship.promotionId";

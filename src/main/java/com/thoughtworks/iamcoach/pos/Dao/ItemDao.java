@@ -11,7 +11,7 @@ public interface ItemDao {
 
     ArrayList<Item> getItems();
 
-    ArrayList<Promotion> getPromotionOfItem(int id);
+    ArrayList<Promotion> getPromotions(int id);
 
     Category getCategory(int id);
 }
