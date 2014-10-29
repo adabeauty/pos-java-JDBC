@@ -63,7 +63,29 @@ public class ItemImple implements ItemDao {
 
     @Override
     public ArrayList<Promotion> getPromotionOfItem(int id) {
-        return null;
+        ArrayList<Promotion> promotions = new ArrayList<Promotion>();
+        String sql = "SELECT promotions.*, relationship.discount FROM promotions, relationship " +
+                "WHERE relationship.itemId=? AND promotions.id=relationship.promotionId";
+
+        Connection connection = ulti.getConnection();
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1,id);
+
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                Promotion promotion = new Promotion(rs.getInt("id"),  rs.getInt("type"), rs.getString("description"));
+                promotions.add(promotion);
+            }
+
+            ulti.closeConnection();
+            pstmt.close();
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return promotions;
     }
 
     @Override
