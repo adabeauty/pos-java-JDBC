@@ -6,6 +6,9 @@ public abstract class Promotion {
     private int type;
     private String description;
 
+    protected Promotion() {
+    }
+
     public Promotion(int id, int type, String description) {
         this.id = id;
         this.type = type;
