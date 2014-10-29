@@ -1,14 +1,9 @@
 package com.thoughtworks.iamcoach.pos.Ulti;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.*;
 import java.util.ArrayList;
 
-/**
- * Created by wanghuan on 14-10-29.
- */
 public class ReadFileUlti {
     public ArrayList<String> readFile(String fileName){
         ArrayList<String> text = new ArrayList<String>();
