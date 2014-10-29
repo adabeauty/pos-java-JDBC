@@ -2,7 +2,6 @@ package com.thoughtworks.iamcoach.pos.Dao;
 
 import com.thoughtworks.iamcoach.pos.Ulti.Ulti;
 import com.thoughtworks.iamcoach.pos.module.Category;
-import com.thoughtworks.iamcoach.pos.module.Item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +17,28 @@ public class CategoryImple implements CategoryDao{
     
     @Override
     public ArrayList<Category> getCategories() {
-        return null;
+        ArrayList<Category> categories = new ArrayList<Category>();
+        String sql = "SELECT * FROM categories";
+
+        Category promotion = null;
+        Connection conn = ulti.getConnection();
+        try{
+            preparedStatement = conn.prepareStatement(sql);
+
+            resultSet = preparedStatement.executeQuery(sql);
+            while (resultSet.next()){
+                Category category = new Category(resultSet.getString("name"));
+                categories.add(category);
+            }
+
+            ulti.closeConnection();
+            preparedStatement.close();
+            resultSet.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categories;
     }
 
     @Override
