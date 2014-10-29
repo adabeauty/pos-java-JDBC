@@ -1,10 +1,7 @@
 package com.thoughtworks.iamcoach.pos.service;
 
-import com.thoughtworks.iamcoach.pos.module.Category;
-import com.thoughtworks.iamcoach.pos.module.Item;
+import com.thoughtworks.iamcoach.pos.module.*;
 import org.junit.Test;
-
-import java.util.Calendar;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
