@@ -1,7 +1,11 @@
 package com.thoughtworks.iamcoach.pos.Dao;
 
-/**
- * Created by wanghuan on 14-10-29.
- */
+import com.thoughtworks.iamcoach.pos.module.Promotion;
+
+import java.util.ArrayList;
+
 public interface PromotionDao {
+    Promotion getPromotionByType(int type);
+
+    ArrayList<Promotion> getPromotions();
 }
