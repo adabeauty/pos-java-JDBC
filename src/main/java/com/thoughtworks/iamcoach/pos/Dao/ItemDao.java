@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public interface ItemDao {
     Item getItemByBarcode(String barcode);
 
-    ArrayList<ItemDao> getItems();
+    ArrayList<Item> getItems();
 
     ArrayList<Promotion> getPromotionOfItem(int id);
 
