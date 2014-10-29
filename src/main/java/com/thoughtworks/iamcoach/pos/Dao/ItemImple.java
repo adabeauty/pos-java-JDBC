@@ -1,7 +1,7 @@
 package com.thoughtworks.iamcoach.pos.Dao;
 
 import com.thoughtworks.iamcoach.pos.module.Category;
-import com.thoughtworks.iamcoach.pos.Ulti.Ulti;
+import com.thoughtworks.iamcoach.pos.Ulti.ConnctionUlti;
 import com.thoughtworks.iamcoach.pos.module.Item;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
 
@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class ItemImple implements ItemDao {
     private PreparedStatement pstmt = null;
     private ResultSet rs = null;
-    private Ulti ulti= new Ulti();
+    private ConnctionUlti connctionUlti = new ConnctionUlti();
 
     @Override
     public Item getItemByBarcode(String barcode) {
         String sql = "SELECT * FROM items WHERE barcode = ?";
         Item item = null;
-        Connection conn = ulti.getConnection();
+        Connection conn = connctionUlti.getConnection();
         try{
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, barcode);
@@ -25,7 +25,7 @@ public class ItemImple implements ItemDao {
             rs.next();
             item = new Item(rs.getInt("categoryId"), rs.getString("barcode"), rs.getString("name"), rs.getString("unit"), rs.getDouble("price"));
 
-            ulti.closeConnection();
+            connctionUlti.closeConnection();
             pstmt.close();
             rs.close();
 
@@ -41,7 +41,7 @@ public class ItemImple implements ItemDao {
         String sql = "SELECT * FROM items";
 
         Item item = null;
-        Connection conn = ulti.getConnection();
+        Connection conn = connctionUlti.getConnection();
         try{
             pstmt = conn.prepareStatement(sql);
 
@@ -51,7 +51,7 @@ public class ItemImple implements ItemDao {
                 items.add(item);
             }
 
-            ulti.closeConnection();
+            connctionUlti.closeConnection();
             pstmt.close();
             rs.close();
 
@@ -67,7 +67,7 @@ public class ItemImple implements ItemDao {
         String sql = "SELECT promotions.*, relationship.discount FROM promotions, relationship " +
                 "WHERE relationship.itemId=? AND promotions.id=relationship.promotionId";
 
-        Connection connection = ulti.getConnection();
+        Connection connection = connctionUlti.getConnection();
         try {
             pstmt = connection.prepareStatement(sql);
             pstmt.setInt(1,id);
@@ -78,7 +78,7 @@ public class ItemImple implements ItemDao {
                 promotions.add(promotion);
             }
 
-            ulti.closeConnection();
+            connctionUlti.closeConnection();
             pstmt.close();
             rs.close();
         } catch (SQLException e) {
@@ -94,7 +94,7 @@ public class ItemImple implements ItemDao {
                 "WHERE items.id = ? AND categories.id = items.categoryId" ;
 
         Category category = null;
-        Connection connection = ulti.getConnection();
+        Connection connection = connctionUlti.getConnection();
         try {
             pstmt = connection.prepareStatement(sql);
             pstmt.setInt(1,id);
@@ -103,7 +103,7 @@ public class ItemImple implements ItemDao {
             rs.next();
             category = new Category(rs.getString("name"));
 
-            ulti.closeConnection();
+            connctionUlti.closeConnection();
             pstmt.close();
             rs.close();
         } catch (SQLException e) {

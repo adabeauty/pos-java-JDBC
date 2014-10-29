@@ -1,13 +1,13 @@
 package com.thoughtworks.iamcoach.pos.Dao;
 
-import com.thoughtworks.iamcoach.pos.Ulti.Ulti;
+import com.thoughtworks.iamcoach.pos.Ulti.ConnctionUlti;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class PromotionImple implements PromotionDao {
-    private Ulti ulti = new Ulti();
+    private ConnctionUlti connctionUlti = new ConnctionUlti();
 
     private PreparedStatement preparedStatement = null;
     private ResultSet result = null;
@@ -15,7 +15,7 @@ public class PromotionImple implements PromotionDao {
     @Override
     public Promotion getPromotionByType(int type) {
         String sql =  "SELECT * FROM promotions WHERE type = ?";
-        Connection connection = ulti.getConnection();
+        Connection connection = connctionUlti.getConnection();
         Promotion promotion = null;
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -40,7 +40,7 @@ public class PromotionImple implements PromotionDao {
         String sql = "SELECT * FROM promotions";
 
         Promotion promotion = null;
-        Connection conn = ulti.getConnection();
+        Connection conn = connctionUlti.getConnection();
         try{
             preparedStatement = conn.prepareStatement(sql);
 
@@ -58,7 +58,7 @@ public class PromotionImple implements PromotionDao {
     }
 
     private void closeAll(){
-        ulti.closeConnection();
+        connctionUlti.closeConnection();
         try {
             preparedStatement.close();
             result.close();

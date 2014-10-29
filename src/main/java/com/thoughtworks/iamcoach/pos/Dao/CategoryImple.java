@@ -1,6 +1,6 @@
 package com.thoughtworks.iamcoach.pos.Dao;
 
-import com.thoughtworks.iamcoach.pos.Ulti.Ulti;
+import com.thoughtworks.iamcoach.pos.Ulti.ConnctionUlti;
 import com.thoughtworks.iamcoach.pos.module.Category;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CategoryImple implements CategoryDao{
-    private Ulti ulti= new Ulti();
+    private ConnctionUlti connctionUlti = new ConnctionUlti();
     
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
@@ -21,7 +21,7 @@ public class CategoryImple implements CategoryDao{
         String sql = "SELECT * FROM categories";
 
         Category promotion = null;
-        Connection conn = ulti.getConnection();
+        Connection conn = connctionUlti.getConnection();
         try{
             preparedStatement = conn.prepareStatement(sql);
 
@@ -31,7 +31,7 @@ public class CategoryImple implements CategoryDao{
                 categories.add(category);
             }
 
-            ulti.closeConnection();
+            connctionUlti.closeConnection();
             preparedStatement.close();
             resultSet.close();
 
@@ -45,7 +45,7 @@ public class CategoryImple implements CategoryDao{
     public Category getCategoryById(int id) {
         String sql = "SELECT * FROM items WHERE id = ?";
         Category category = null;
-        Connection conn = ulti.getConnection();
+        Connection conn = connctionUlti.getConnection();
         try{
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, id);
@@ -53,7 +53,7 @@ public class CategoryImple implements CategoryDao{
             resultSet.next();
             category = new Category(resultSet.getString("name"));
 
-            ulti.closeConnection();
+            connctionUlti.closeConnection();
             preparedStatement.close();
             resultSet.close();
 
