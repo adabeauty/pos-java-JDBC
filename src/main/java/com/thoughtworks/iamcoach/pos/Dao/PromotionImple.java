@@ -1,16 +1,45 @@
 package com.thoughtworks.iamcoach.pos.Dao;
 
+import com.thoughtworks.iamcoach.pos.Ulti.Ulti;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
  * Created by wanghuan on 14-10-29.
  */
 public class PromotionImple implements PromotionDao {
+    private Ulti ulti = new Ulti();
+
+    private PreparedStatement preparedStatement = null;
+    private ResultSet result = null;
+
     @Override
     public Promotion getPromotionByType(int type) {
-        return null;
+        String sql =  "SELECT * FROM promotions WHERE type = ?";
+        Connection connection = ulti.getConnection();
+        Promotion promotion = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, type);
+
+            result = preparedStatement.executeQuery();
+            result.next();
+
+            promotion = new Promotion(result.getInt("id"), result.getInt("type"), result.getString("description"));
+
+            ulti.closeConnection();
+            preparedStatement.close();
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return promotion;
     }
 
     @Override
