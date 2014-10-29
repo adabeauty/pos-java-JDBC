@@ -10,7 +10,7 @@ public class PromotionTest {
         int id = 1;
         int type = 1;
         String description = "buy_two_one_free";
-        Promotion promotion = new Promotion(id, type, description);
+        Promotion promotion = new BuyTwoOneFreePromotion(id, type, description);
 
         assertThat(promotion.getId()).isEqualTo(1);
         assertThat(promotion.getType()).isEqualTo(1);
@@ -22,7 +22,7 @@ public class PromotionTest {
         int id = 1;
         int type = 1;
         String description = "buy_two_one_free";
-        Promotion promotion = new Promotion(id, type, description);
+        Promotion promotion = new BuyTwoOneFreePromotion(id, type, description);
         String result = "Promotion{" +
                 "id=" + id +
                 ", type=" + type +
