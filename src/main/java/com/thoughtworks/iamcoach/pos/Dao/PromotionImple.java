@@ -26,9 +26,7 @@ public class PromotionImple implements PromotionDao {
 
             promotion = new Promotion(result.getInt("id"), result.getInt("type"), result.getString("description"));
 
-            ulti.closeConnection();
-            preparedStatement.close();
-            result.close();
+            closeAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -51,14 +49,21 @@ public class PromotionImple implements PromotionDao {
                 promotion = new Promotion(result.getInt("id"), result.getInt("type"), result.getString("description"));
                 promotions.add(promotion);
             }
-
-            ulti.closeConnection();
-            preparedStatement.close();
-            result.close();
+            closeAll();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return promotions;
+    }
+
+    private void closeAll(){
+        ulti.closeConnection();
+        try {
+            preparedStatement.close();
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
