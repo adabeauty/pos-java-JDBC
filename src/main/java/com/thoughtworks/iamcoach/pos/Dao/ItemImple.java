@@ -36,8 +36,29 @@ public class ItemImple implements ItemDao {
     }
 
     @Override
-    public ArrayList<ItemDao> getItems() {
-        return null;
+    public ArrayList<Item> getItems() {
+        ArrayList<Item> items = new ArrayList<Item>();
+        String sql = "SELECT * FROM items";
+
+        Item item = null;
+        Connection conn = ulti.getConnection();
+        try{
+            pstmt = conn.prepareStatement(sql);
+
+            rs = pstmt.executeQuery(sql);
+            while (rs.next()){
+                item = new Item(rs.getInt("categoryId"), rs.getString("barcode"), rs.getString("name"), rs.getString("unit"), rs.getDouble("price"));
+                items.add(item);
+            }
+
+            ulti.closeConnection();
+            pstmt.close();
+            rs.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
     }
 
     @Override
