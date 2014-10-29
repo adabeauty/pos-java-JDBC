@@ -32,4 +32,6 @@ public class Promotion {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    public abstract calulatePromotion();
 }
