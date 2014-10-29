@@ -1,6 +1,6 @@
 package com.thoughtworks.iamcoach.pos.Dao;
 
-import com.thoughtworks.iamcoach.pos.Category;
+import com.thoughtworks.iamcoach.pos.module.Category;
 import com.thoughtworks.iamcoach.pos.module.Item;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
 

@@ -1,8 +1,5 @@
-package com.thoughtworks.iamcoach.pos;
+package com.thoughtworks.iamcoach.pos.module;
 
-/**
- * Created by wanghuan on 14-10-29.
- */
 public class Category {
     private int id;
     private String name;
