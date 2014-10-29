@@ -7,13 +7,11 @@ import com.thoughtworks.iamcoach.pos.module.Promotion;
 import java.util.ArrayList;
 
 public interface ItemDao {
-    public interface ItemInterface {
-        Item getItemByBarcode(String barcode);
+    Item getItemByBarcode(String barcode);
 
-        ArrayList<ItemDao> getItems();
+    ArrayList<ItemDao> getItems();
 
-        ArrayList<Promotion> getPromotionOfItem(int id);
+    ArrayList<Promotion> getPromotionOfItem(int id);
 
-        Category getCategory(int id);
-    }
+    Category getCategory(int id);
 }
