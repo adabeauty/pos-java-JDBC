@@ -6,9 +6,6 @@ import com.thoughtworks.iamcoach.pos.module.Promotion;
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * Created by wanghuan on 14-10-29.
- */
 public class PromotionImple implements PromotionDao {
     private Ulti ulti = new Ulti();
 
