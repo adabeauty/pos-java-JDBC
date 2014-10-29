@@ -6,7 +6,12 @@ import com.thoughtworks.iamcoach.pos.module.*;
 import java.util.ArrayList;
 
 public class ItemService {
-    ItemImple itemImple = new ItemImple();
+    private ItemImple itemImple = new ItemImple();
+
+    public void setItemImple(ItemImple itemImple) {
+        this.itemImple = itemImple;
+    }
+
     public ArrayList<Item> getItems() {
         return itemImple.getItems();
     }
