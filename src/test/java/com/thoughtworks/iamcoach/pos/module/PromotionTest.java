@@ -1,4 +1,4 @@
-package com.thoughtworks.iamcoach.pos;
+package com.thoughtworks.iamcoach.pos.module;
 
 import org.junit.Test;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
