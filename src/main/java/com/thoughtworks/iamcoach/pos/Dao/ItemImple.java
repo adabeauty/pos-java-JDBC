@@ -90,6 +90,25 @@ public class ItemImple implements ItemDao {
 
     @Override
     public Category getCategory(int id) {
-        return null;
+        String sql = "SELECT categories.name, items.* FROM categories, items "+
+                "WHERE items.id = ? AND categories.id = items.categoryId" ;
+
+        Category category = null;
+        Connection connection = ulti.getConnection();
+        try {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1,id);
+
+            rs = pstmt.executeQuery();
+            rs.next();
+            category = new Category(rs.getString("name"));
+
+            ulti.closeConnection();
+            pstmt.close();
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return category;
     }
 }
