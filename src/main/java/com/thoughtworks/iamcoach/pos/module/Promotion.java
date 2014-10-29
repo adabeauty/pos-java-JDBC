@@ -1,6 +1,6 @@
 package com.thoughtworks.iamcoach.pos.module;
 
-public class Promotion {
+public abstract class Promotion {
 
     private int id;
     private int type;
@@ -32,4 +32,6 @@ public class Promotion {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    public abstract double calcultaPromotion(Item item, double num);
 }
