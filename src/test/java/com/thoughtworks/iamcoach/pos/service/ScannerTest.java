@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-
-/**
- * Created by wanghuan on 14-10-30.
- */
 public class ScannerTest {
     @Test
     public void can_get_inputs(){
