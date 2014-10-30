@@ -1,14 +1,15 @@
 package com.thoughtworks.iamcoach.pos.module;
 
 public class Category {
-    private int id;
+    private String id;
     private String name;
 
-    public Category(String name) {
+    public Category(String id, String name) {
         this.name = name;
+        this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
