@@ -8,9 +8,10 @@ public class CartItem extends Item{
     private double num;
     private List<Promotion> promotionList = new ArrayList<Promotion>();
 
-    public CartItem(Item item, double num) {
+    public CartItem(Item item, double num, ArrayList<Promotion> promotionList) {
         super(item.getCategoryId(), item.getBarcode(), item.getName(), item.getUnit(), item.getPrice());
         this.num = num;
+        this.promotionList = promotionList;
     }
 
     public double getNum() {
