@@ -1,17 +1,11 @@
 package com.thoughtworks.iamcoach.pos.service;
 
-import com.thoughtworks.iamcoach.pos.Dao.ItemDao;
-import com.thoughtworks.iamcoach.pos.Dao.ItemImple;
+import com.thoughtworks.iamcoach.pos.Dao.*;
 import com.thoughtworks.iamcoach.pos.Ulti.ReadFileUlti;
-import com.thoughtworks.iamcoach.pos.module.CartItem;
-import com.thoughtworks.iamcoach.pos.module.Item;
-import com.thoughtworks.iamcoach.pos.module.Promotion;
+import com.thoughtworks.iamcoach.pos.module.*;
 
 import java.util.ArrayList;
 
-/**
- * Created by wanghuan on 14-10-30.
- */
 public class CartService {
 
     public ArrayList<CartItem> getCartInfo() {
