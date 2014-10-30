@@ -1,5 +1,8 @@
 package com.thoughtworks.iamcoach.pos.module;
 
+import com.thoughtworks.iamcoach.pos.Dao.ItemDao;
+import com.thoughtworks.iamcoach.pos.Dao.ItemImple;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +12,7 @@ public class CartItem extends Item{
     private List<Promotion> promotionList = new ArrayList<Promotion>();
 
     public CartItem(Item item, double num, ArrayList<Promotion> promotionList) {
-        super(item.getCategoryId(), item.getBarcode(), item.getName(), item.getUnit(), item.getPrice());
+        super(item.getId(), item.getCategoryId(), item.getBarcode(), item.getName(), item.getUnit(), item.getPrice());
         this.num = num;
         this.promotionList = promotionList;
     }
@@ -32,24 +35,12 @@ public class CartItem extends Item{
     public double getSubtotal() {
         ArrayList<Double> allSubTotals = new ArrayList<Double>();
 
-        Item item = new Item(this.getCategoryId(), this.getBarcode(), this.getName(), this.getUnit(), this.getPrice());
-        CartItem cartItem = new CartItem(item, this.num);
+        Item item = new Item(this.getId(), this.getCategoryId(), this.getBarcode(), this.getName(), this.getUnit(), this.getPrice());
 
-        for(int i=0; i<getPromotion().size(); i++){
-            if(getPromotion().get(i).equals("buy_two_get_one_free_promotion")){
-                BuyTwoOneFreeCalculator buyTwoOneFreeCalculator = new BuyTwoOneFreeCalculator();
-                allSubTotals.add(buyTwoOneFreeCalculator.calculatePromotion(cartItem));
-            }
-            if(getPromotion().get(i).equals("second_half_price_promotion")){
-                SecondHalfCalculator secondHalfCalculator = new SecondHalfCalculator();
-                allSubTotals.add(secondHalfCalculator.calculatePromotion(cartItem));
-            }
-            if(getPromotion().get(i).equals("discount_promotion")){
-                DiscountCalculator discountCalculator = new DiscountCalculator();
-                allSubTotals.add(discountCalculator.calculatePromotion(cartItem));
-            }
+        for(int i=0; i<getPromotionList().size(); i++){
+            System.out.println(getPromotionList().get(i).calcultaPromotion(item, num));
+            allSubTotals.add(getPromotionList().get(i).calcultaPromotion(item, num));
         }
-
 
         return Collections.min(allSubTotals);
     }
