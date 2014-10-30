@@ -26,10 +26,10 @@ create table items(
   foreign key(categoryId) references categories(id)
 );
 insert into items values(null, 3,'ITEM000001', 'apple', 'kg', 8.0);
-insert into items values(null, 1,'ITEM000002', 'cocacola', 'can', 2.5);
+insert into items values(null, 1, 'ITEM000002', 'cocacola', 'can', 2.5);
 insert into items values(null, 1, 'ITEM000003', 'juice', 'can', 4.0);
 insert into items values(null, 2, 'ITEM000004', 'chocolate', 'bar', 7.5);
-insert into items values(null, 2, 'ITEM000005', 'cake', 'each', 25.0);
+insert into items values(null, 3, 'ITEM000005', 'strawberry', 'kg', 25.0);
 
 create table promotions(
   id int auto_increment,
