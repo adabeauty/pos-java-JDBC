@@ -60,6 +60,7 @@ public class Printer {
         allCartItems +="************************************************";
         return allCartItems;
     }
+
     private String printCategory(ArrayList<CartItem> cartItems){
         String categoryText = "";
 
@@ -72,8 +73,9 @@ public class Printer {
                     + "   小计：" + cartItem.getSubtotal() + "元" +"\n";
 
         }
-        return categoryText;
+        return categoryText + "\n";
     }
+
     private String printTotal(){
 
         return  "优惠前：" + cartService.getTotalSum() + "元"
