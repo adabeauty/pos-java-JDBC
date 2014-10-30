@@ -27,7 +27,7 @@ public class CategoryImple implements CategoryDao{
 
             resultSet = preparedStatement.executeQuery(sql);
             while (resultSet.next()){
-                Category category = new Category(resultSet.getString("name"));
+                Category category = new Category(resultSet.getString("id"), resultSet.getString("name"));
                 categories.add(category);
             }
 
@@ -51,7 +51,7 @@ public class CategoryImple implements CategoryDao{
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery(sql);
             resultSet.next();
-            category = new Category(resultSet.getString("name"));
+            category = new Category(resultSet.getString("id"), resultSet.getString("name"));
 
             connctionUlti.closeConnection();
             preparedStatement.close();
