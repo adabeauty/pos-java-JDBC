@@ -12,7 +12,7 @@ public class BuyTwoOneFreePromotionTest{
     public void can_calculate_BuyTwoOneFreePromotion(){
         Item item = new Item(3, "TF1001", "apple", "kg", 8.00);
         double num = 3.0;
-        BuyTwoOneFreePromotion buyTwoOneFreePromotion = new BuyTwoOneFreePromotion(1, 1, "buy_two_one_free");
+        BuyTwoOneFreePromotion buyTwoOneFreePromotion = new BuyTwoOneFreePromotion(1, 1, "buy_two_one_free", 1);
         assertThat(buyTwoOneFreePromotion.calcultaPromotion(item, num)).isEqualTo(16.0);
     }
 }

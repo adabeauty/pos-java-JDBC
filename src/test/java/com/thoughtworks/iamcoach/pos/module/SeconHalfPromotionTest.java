@@ -13,7 +13,7 @@ public class SeconHalfPromotionTest {
         Item item = new Item(3, "TF1001", "apple", "kg", 8.00);
         double num = 2.0;
 
-        SeconHalfPromotion seconHalfPromotion = new SeconHalfPromotion(1, 1, "second_half_price");
+        SeconHalfPromotion seconHalfPromotion = new SeconHalfPromotion(1, 1, "second_half_price", 1);
         assertThat(seconHalfPromotion.calcultaPromotion(item, num)).isEqualTo(12.0);
     }
 }
