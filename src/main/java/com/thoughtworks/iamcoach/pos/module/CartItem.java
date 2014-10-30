@@ -1,8 +1,5 @@
 package com.thoughtworks.iamcoach.pos.module;
 
-import com.thoughtworks.iamcoach.pos.Dao.ItemDao;
-import com.thoughtworks.iamcoach.pos.Dao.ItemImple;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -32,6 +29,7 @@ public class CartItem extends Item{
     public void setPromotionList(List<Promotion> promotionList) {
         this.promotionList = promotionList;
     }
+
     public double getSubtotal() {
         ArrayList<Double> allSubTotals = new ArrayList<Double>();
 
