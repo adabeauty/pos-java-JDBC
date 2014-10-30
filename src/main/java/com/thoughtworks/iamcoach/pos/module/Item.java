@@ -1,5 +1,8 @@
 package com.thoughtworks.iamcoach.pos.module;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Item {
 
     private int id;
@@ -9,6 +12,7 @@ public class Item {
     private String name;
     private String unit;
     private double price;
+    private List<Promotion> promotionList = new ArrayList<Promotion>();
 
     public Item(int categoryId, String barcode, String name, String unit, double price) {
         this.categoryId = categoryId;
@@ -42,6 +46,9 @@ public class Item {
         return price;
     }
 
+    public List<Promotion> getPromotionList() {
+        return promotionList;
+    }
     @Override
     public String toString() {
         return "Item{" +
