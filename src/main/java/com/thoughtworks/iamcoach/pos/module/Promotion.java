@@ -27,6 +27,17 @@ public abstract class Promotion {
         return description;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     @Override
     public String toString() {
         return "Promotion{" +
