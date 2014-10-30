@@ -55,8 +55,8 @@ insert into relationship values (5, 1, null);
 insert into relationship values (1, 2, null);
 insert into relationship values (3, 2, null);
 insert into relationship values (5, 2, null);
-insert into relationship values (1, 3, 75);
-insert into relationship values (3, 3, 85);
-insert into relationship values (5, 3, 90);
+insert into relationship values (1, 3, 0.75);
+insert into relationship values (3, 3, 0.85);
+insert into relationship values (5, 3, 0.90);
 
 COMMIT;
