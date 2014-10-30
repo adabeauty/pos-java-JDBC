@@ -2,7 +2,7 @@ package com.thoughtworks.iamcoach.pos.module;
 
 public class Item {
 
-    private int id;
+    private String id;
 
     private int categoryId;
     private String barcode;
@@ -10,7 +10,8 @@ public class Item {
     private String unit;
     private double price;
 
-    public Item(int categoryId, String barcode, String name, String unit, double price) {
+    public Item(String id, int categoryId, String barcode, String name, String unit, double price) {
+        this.id = id;
         this.categoryId = categoryId;
         this.barcode = barcode;
         this.name = name;
@@ -18,7 +19,11 @@ public class Item {
         this.price = price;
     }
 
-    public int getId() {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
         return id;
     }
 
