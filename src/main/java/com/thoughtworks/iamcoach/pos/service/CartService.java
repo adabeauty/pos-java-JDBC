@@ -79,7 +79,6 @@ public class CartService {
 
         double actutalTotal = 0;
         for(int i=0; i<cartItems.size(); i++){
-            System.out.println(cartItems.get(i).getPromotionList().get(2));
             actutalTotal += cartItems.get(i).getSubtotal();
         }
         return actutalTotal;
