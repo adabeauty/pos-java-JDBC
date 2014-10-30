@@ -30,9 +30,6 @@ public class PromotionImple implements PromotionDao {
             promotion.setId(result.getInt("id"));
             promotion.setId(result.getInt("type"));
             promotion.setDescription(result.getString("description"));
-            if(result.getInt("type") == 3){
-                result.getDouble("discount");
-            }
 
             closeAll();
         } catch (SQLException e) {
@@ -59,9 +56,6 @@ public class PromotionImple implements PromotionDao {
                 promotion.setId(result.getInt("id"));
                 promotion.setId(result.getInt("type"));
                 promotion.setDescription(result.getString("description"));
-                if(result.getInt("type") == 3){
-                    result.getDouble("discount");
-                }
 
                 promotions.add(promotion);
             }
@@ -82,4 +76,16 @@ public class PromotionImple implements PromotionDao {
             e.printStackTrace();
         }
     }
+
+//    private Promotion generatePromotion(type){
+//        Promotion promotion =  promotion = PromotionFactory.generatePromotion(type);
+//
+//        promotion.setId(id);
+//        promotion.setId(type);
+//        promotion.setDescription(description);
+//        if(type == 3){
+//            rs.getDouble("discount");
+//        }
+//        return promotion;
+//    }
 }
