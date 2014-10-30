@@ -24,7 +24,7 @@ public class ItemImple implements ItemDao {
             pstmt.setString(1, barcode);
             rs = pstmt.executeQuery();
             rs.next();
-            item = new Item(rs.getInt("categoryId"), rs.getString("barcode"), rs.getString("name"), rs.getString("unit"), rs.getDouble("price"));
+            item = new Item(rs.getString("id"), rs.getInt("categoryId"), rs.getString("barcode"), rs.getString("name"), rs.getString("unit"), rs.getDouble("price"));
 
             connctionUlti.closeConnection();
             pstmt.close();
@@ -48,7 +48,7 @@ public class ItemImple implements ItemDao {
 
             rs = pstmt.executeQuery(sql);
             while (rs.next()){
-                item = new Item(rs.getInt("categoryId"), rs.getString("barcode"), rs.getString("name"), rs.getString("unit"), rs.getDouble("price"));
+                item = new Item(rs.getString("id"), rs.getInt("categoryId"), rs.getString("barcode"), rs.getString("name"), rs.getString("unit"), rs.getDouble("price"));
                 items.add(item);
             }
 

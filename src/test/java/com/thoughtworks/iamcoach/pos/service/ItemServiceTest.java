@@ -26,7 +26,7 @@ public class ItemServiceTest {
         ItemService itemService = new ItemService();
         itemService.setItemImple(mock_ItemImple());
 
-        Item item = new Item(3,"TF1001", "juice", "can", 8.0);
+        Item item = new Item(null, 3,"TF1001", "juice", "can", 8.0);
         String barcode = "TF1001";
         assertThat(itemService.getItemByBarcode(barcode).toString()).isEqualTo(item.toString());
     }
@@ -52,7 +52,7 @@ public class ItemServiceTest {
 
     private  ItemImple mock_ItemImple(){
         ArrayList<Item> items = new ArrayList<Item>();
-        Item item = new Item(3,"TF1001", "juice", "can", 8.0);
+        Item item = new Item(null, 3,"TF1001", "juice", "can", 8.0);
         items.add(item);
 
         ArrayList<Promotion> promotions = new ArrayList<Promotion>();
