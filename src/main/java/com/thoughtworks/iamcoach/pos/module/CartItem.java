@@ -36,7 +36,6 @@ public class CartItem extends Item{
         Item item = new Item(this.getId(), this.getCategoryId(), this.getBarcode(), this.getName(), this.getUnit(), this.getPrice());
 
         for(int i=0; i<getPromotionList().size(); i++){
-            System.out.println(getPromotionList().get(i).calcultaPromotion(item, num));
             allSubTotals.add(getPromotionList().get(i).calcultaPromotion(item, num));
         }
 
