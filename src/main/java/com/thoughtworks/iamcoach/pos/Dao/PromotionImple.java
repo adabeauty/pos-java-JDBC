@@ -30,6 +30,7 @@ public class PromotionImple implements PromotionDao {
             promotion.setId(result.getInt("id"));
             promotion.setId(result.getInt("type"));
             promotion.setDescription(result.getString("description"));
+            promotion.setDiscount(result.getDouble("discount"));
 
             closeAll();
         } catch (SQLException e) {
@@ -56,6 +57,7 @@ public class PromotionImple implements PromotionDao {
                 promotion.setId(result.getInt("id"));
                 promotion.setId(result.getInt("type"));
                 promotion.setDescription(result.getString("description"));
+                promotion.setDiscount(result.getDouble("discount"));
 
                 promotions.add(promotion);
             }
