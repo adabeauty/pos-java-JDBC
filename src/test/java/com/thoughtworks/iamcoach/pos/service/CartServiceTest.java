@@ -18,7 +18,12 @@ public class CartServiceTest {
     @Test
     public void can_get_total_sum(){
         CartService cartService = new CartService();
-
         assertThat(cartService.getTotalSum()).isEqualTo(123);
+    }
+
+    @Test
+    public void can_get_actual_sum(){
+        CartService cartService = new CartService();
+        assertThat(cartService.getActualSum()).isEqualTo(86);
     }
 }
