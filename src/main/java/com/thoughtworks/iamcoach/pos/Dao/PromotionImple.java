@@ -2,6 +2,7 @@ package com.thoughtworks.iamcoach.pos.Dao;
 
 import com.thoughtworks.iamcoach.pos.Ulti.ConnctionUlti;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
+import com.thoughtworks.iamcoach.pos.module.PromotionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -24,7 +25,14 @@ public class PromotionImple implements PromotionDao {
             result = preparedStatement.executeQuery();
             result.next();
 
-            promotion = new Promotion(result.getInt("id"), result.getInt("type"), result.getString("description"));
+            promotion = PromotionFactory.generatePromotion(result.getInt("type"));
+
+            promotion.setId(result.getInt("id"));
+            promotion.setId(result.getInt("type"));
+            promotion.setDescription(result.getString("description"));
+            if(result.getInt("type") == 3){
+                result.getDouble("discount");
+            }
 
             closeAll();
         } catch (SQLException e) {
@@ -46,7 +54,15 @@ public class PromotionImple implements PromotionDao {
 
             result = preparedStatement.executeQuery(sql);
             while (result.next()){
-                promotion = new Promotion(result.getInt("id"), result.getInt("type"), result.getString("description"));
+                promotion = PromotionFactory.generatePromotion(result.getInt("type"));
+
+                promotion.setId(result.getInt("id"));
+                promotion.setId(result.getInt("type"));
+                promotion.setDescription(result.getString("description"));
+                if(result.getInt("type") == 3){
+                    result.getDouble("discount");
+                }
+
                 promotions.add(promotion);
             }
             closeAll();
