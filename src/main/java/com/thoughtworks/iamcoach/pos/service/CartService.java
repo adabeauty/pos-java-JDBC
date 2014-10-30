@@ -61,4 +61,16 @@ public class CartService {
         }
         return 0.0;
     }
+
+    public double getTotalSum() {
+        ArrayList<CartItem> cartItems = this.getCartInfo();
+
+        double total = 0;
+        for(int i=0; i<cartItems.size(); i++){
+            double actualSubTotal = cartItems.get(i).getNum() * cartItems.get(i).getPrice();
+            total += actualSubTotal;
+        }
+
+        return total;
+    }
 }
