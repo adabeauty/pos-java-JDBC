@@ -4,6 +4,7 @@ import com.thoughtworks.iamcoach.pos.module.Category;
 import com.thoughtworks.iamcoach.pos.Ulti.ConnctionUlti;
 import com.thoughtworks.iamcoach.pos.module.Item;
 import com.thoughtworks.iamcoach.pos.module.Promotion;
+import com.thoughtworks.iamcoach.pos.module.PromotionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -74,7 +75,13 @@ public class ItemImple implements ItemDao {
 
             rs = pstmt.executeQuery();
             while(rs.next()){
-                Promotion promotion = new Promotion(rs.getInt("id"),  rs.getInt("type"), rs.getString("description"));
+                Promotion promotion =PromotionFactory.generatePromotion(rs.getInt("type"));
+                promotion.setId(rs.getInt("id"));
+                promotion.setId(rs.getInt("type"));
+                promotion.setDescription(rs.getString("description"));
+                if(rs.getInt("type") == 3){
+                    rs.getDouble("discount");
+                }
                 promotions.add(promotion);
             }
 
