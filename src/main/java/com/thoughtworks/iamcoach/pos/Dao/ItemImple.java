@@ -108,7 +108,7 @@ public class ItemImple implements ItemDao {
 
             rs = pstmt.executeQuery();
             rs.next();
-            category = new Category(rs.getString("name"));
+            category = new Category(rs.getString("id"), rs.getString("name"));
 
             connctionUlti.closeConnection();
             pstmt.close();

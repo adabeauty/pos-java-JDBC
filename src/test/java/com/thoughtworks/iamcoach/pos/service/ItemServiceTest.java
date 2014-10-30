@@ -46,7 +46,7 @@ public class ItemServiceTest {
         itemService.setItemImple(mock_ItemImple());
 
         int id = 1;
-        Category category = new Category("drink");
+        Category category = new Category(null, "drink");
         assertThat(itemService.getCategory(id).toString()).isEqualTo(category.toString());
     }
 
@@ -61,7 +61,7 @@ public class ItemServiceTest {
 
         String barcode = "TF1001";
         int id = 1;
-        Category category = new Category("drink");
+        Category category = new Category(null, "drink");
 
         ItemImple itemImple = mock(ItemImple.class);
         when(itemImple.getItems()).thenReturn(items);

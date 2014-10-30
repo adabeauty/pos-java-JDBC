@@ -8,16 +8,15 @@ public class CategoryTest {
     @Test
     public void can_get_category_paraments(){
         String name = "drink";
-        Category category = new Category(name);
+        Category category = new Category(null, name);
 
-        assertThat(category.getId()).isEqualTo(0);
         assertThat(category.getName()).isEqualTo(name);
     }
 
     @Test
     public void can_transform_to_string(){
         String name = "drink";
-        Category category = new Category(name);
+        Category category = new Category(null, name);
         String result = "Category{" +
                 "id=" + category.getId() +
                 ", name='" + category.getName() + '\'' +
