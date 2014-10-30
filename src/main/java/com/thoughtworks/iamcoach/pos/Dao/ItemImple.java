@@ -76,12 +76,14 @@ public class ItemImple implements ItemDao {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Promotion promotion =PromotionFactory.generatePromotion(rs.getInt("type"));
+
                 promotion.setId(rs.getInt("id"));
                 promotion.setId(rs.getInt("type"));
                 promotion.setDescription(rs.getString("description"));
                 if(rs.getInt("type") == 3){
                     rs.getDouble("discount");
                 }
+                
                 promotions.add(promotion);
             }
 
