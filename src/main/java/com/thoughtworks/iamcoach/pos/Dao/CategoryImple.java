@@ -43,13 +43,13 @@ public class CategoryImple implements CategoryDao{
 
     @Override
     public Category getCategoryById(int id) {
-        String sql = "SELECT * FROM items WHERE id = ?";
+        String sql = "SELECT * FROM categories WHERE id = ?";
         Category category = null;
         Connection conn = connctionUlti.getConnection();
         try{
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, id);
-            resultSet = preparedStatement.executeQuery(sql);
+            resultSet = preparedStatement.executeQuery();
             resultSet.next();
             category = new Category(resultSet.getString("id"), resultSet.getString("name"));
 
